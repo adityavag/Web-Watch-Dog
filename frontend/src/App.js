@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 function App() {
   const [userInput, setUserInput] = useState("");
+  const [status, setStatus] = useState("");
   const fetchData = async() => {
     try{
       const response = await axios(
         `http://localhost:8080/check?url=${userInput}`
-      )
+      );
+      setStatus(response.data);
       console.log(response.data);
     } catch(e) {
       console.log(e);
@@ -36,6 +38,7 @@ function App() {
               Submit
             </button>
             <div className="mt-5">
+              {status}
             </div>
         </div>
       </div> 
