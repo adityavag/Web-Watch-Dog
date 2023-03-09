@@ -1,5 +1,6 @@
 package io.aditya.web.watch.dog.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ public class UrlCheckController {
     private final String SITE_IS_DOWN = "Site is Down !";
     private final String INCORRECT_URL = "Incorrect Url !";
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/check")
     public String getUrlStatusMessage(@RequestParam String url){
         String returnMessage = "";
