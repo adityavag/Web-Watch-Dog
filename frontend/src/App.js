@@ -1,6 +1,17 @@
+import axios from "axios";
 import { useState } from "react";
 function App() {
   const [userInput, setUserInput] = useState("");
+  const fetchData = async() => {
+    try{
+      const response = await axios(
+        `http://localhost:8080/check?url=${userInput}`
+      )
+      console.log(response.data);
+    } catch(e) {
+      console.log(e);
+    }
+  }
   return (
     <div className="container h-screen flex justify-center items-center">
       <div className="text-center">
@@ -19,11 +30,12 @@ function App() {
             />
             <button 
               className="bg-blue-500 text-white px-8 py-3 ml-4 rounded-md"
-              onClick={test}>
+              onClick={() => {
+                fetchData();
+              }}>
               Submit
             </button>
             <div className="mt-5">
-              {/* {} */}
             </div>
         </div>
       </div> 
