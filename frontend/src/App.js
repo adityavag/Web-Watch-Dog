@@ -6,7 +6,7 @@ function App() {
   const fetchData = async() => {
     try{
       const response = await axios(
-        `https://web-watch-dog-api-production.up.railway.app/check?url=${userInput}`
+        `https://web-watch-dogw.onrender.com/check?url=${userInput}`
       );
       setStatus(response.data);
       console.log(response.data);
